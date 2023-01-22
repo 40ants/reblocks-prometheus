@@ -12,7 +12,7 @@ Install the system using quicklisp client and Ultralisp dist:
 ```
 (ql-dist:install-dist "http://dist.ultralisp.org/"
                       :prompt nil)
-(ql:quickload :reblocks-promethus)
+(ql:quickload :reblocks-prometheus)
 ```
 
 Then inherit your Reblocks application from PROMETHEUS-APP-MIXIN class:

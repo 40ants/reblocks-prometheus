@@ -20,7 +20,9 @@
                 #:number-of-pages-gauge)
   (:import-from #:reblocks-prometheus/gauges/number-of-sessions
                 #:number-of-sessions-gauge
-                #:number-of-anonymous-sessions-gauge))
+                #:number-of-anonymous-sessions-gauge)
+  (:import-from #:prometheus-gc
+                #:make-gc-collector))
 (in-package #:reblocks-prometheus/app)
 
 
@@ -39,7 +41,7 @@
     (progn 
       (make-memory-collector :registry registry)
       (make-threads-collector :registry registry)
-      (prometheus.sbcl::make-gc-collector :registry registry))
+      (make-gc-collector :registry registry))
   
     (make-process-collector :registry registry)
 
