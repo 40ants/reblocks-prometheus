@@ -42,7 +42,7 @@ You can install this library from Quicklisp, but you want to receive updates qui
 
 ## Usage
 
-Inherit your Reblocks application from [`prometheus-app-mixin`][1727] class:
+Inherit your Reblocks application from [`prometheus-app-mixin`][db0d] class:
 
 ```
 (defapp app
@@ -55,28 +55,28 @@ A new route `/metrics` will be added to serve metrics in Prometheus format.
 
 ## API
 
-<a id="x-28REBLOCKS-PROMETHEUS-3APROMETHEUS-APP-MIXIN-20CLASS-29"></a>
+<a id="x-28REBLOCKS-PROMETHEUS-2FAPP-3APROMETHEUS-APP-MIXIN-20CLASS-29"></a>
 
-### [class](31eb) `reblocks-prometheus:prometheus-app-mixin` ()
+### [class](c5bc) `reblocks-prometheus/app:prometheus-app-mixin` ()
 
 A mixin which gathers some stats to report in Prometheus format.
 
 Also, this mixin adds a /metrics slot to the app.
 
-Use [`stats-registry`][ad09] to access the registry slot.
+Use [`stats-registry`][b3a2] to access the registry slot.
 
-<a id="x-28REBLOCKS-PROMETHEUS-3ASTATS-REGISTRY-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-PROMETHEUS-3APROMETHEUS-APP-MIXIN-29-29"></a>
+<a id="x-28REBLOCKS-PROMETHEUS-2FAPP-3ASTATS-REGISTRY-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-PROMETHEUS-2FAPP-3APROMETHEUS-APP-MIXIN-29-29"></a>
 
-### [reader](9392) `reblocks-prometheus:stats-registry` (prometheus-app-mixin) (= (prometheus:make-registry))
+### [reader](3731) `reblocks-prometheus/app:stats-registry` (prometheus-app-mixin) (= (make-registry))
 
 
-[1727]: #x-28REBLOCKS-PROMETHEUS-3APROMETHEUS-APP-MIXIN-20CLASS-29
-[ad09]: #x-28REBLOCKS-PROMETHEUS-3ASTATS-REGISTRY-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-PROMETHEUS-3APROMETHEUS-APP-MIXIN-29-29
+[db0d]: #x-28REBLOCKS-PROMETHEUS-2FAPP-3APROMETHEUS-APP-MIXIN-20CLASS-29
+[b3a2]: #x-28REBLOCKS-PROMETHEUS-2FAPP-3ASTATS-REGISTRY-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-PROMETHEUS-2FAPP-3APROMETHEUS-APP-MIXIN-29-29
 [0a5b]: https://40ants.com/reblocks-prometheus
 [d447]: https://github.com/40ants/reblocks-prometheus
 [1638]: https://github.com/40ants/reblocks-prometheus/actions
-[31eb]: https://github.com/40ants/reblocks-prometheus/blob/2dac7f2c2c583b1605f44a5b55df222cc084a9c8/src/app.lisp#L31
-[9392]: https://github.com/40ants/reblocks-prometheus/blob/2dac7f2c2c583b1605f44a5b55df222cc084a9c8/src/app.lisp#L32
+[c5bc]: https://github.com/40ants/reblocks-prometheus/blob/fe7e97966042ed46e0bb50252c001b0b6560d6cb/src/app.lisp#L31
+[3731]: https://github.com/40ants/reblocks-prometheus/blob/fe7e97966042ed46e0bb50252c001b0b6560d6cb/src/app.lisp#L32
 [8225]: https://github.com/40ants/reblocks-prometheus/issues
 [df56]: https://prometheus.io/
 
