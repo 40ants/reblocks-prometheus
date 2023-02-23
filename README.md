@@ -57,7 +57,7 @@ A new route `/metrics` will be added to serve metrics in Prometheus format.
 
 <a id="x-28REBLOCKS-PROMETHEUS-2FAPP-3APROMETHEUS-APP-MIXIN-20CLASS-29"></a>
 
-### [class](c5bc) `reblocks-prometheus/app:prometheus-app-mixin` ()
+### [class](42f9) `reblocks-prometheus/app:prometheus-app-mixin` ()
 
 A mixin which gathers some stats to report in Prometheus format.
 
@@ -67,7 +67,7 @@ Use [`stats-registry`][b3a2] to access the registry slot.
 
 <a id="x-28REBLOCKS-PROMETHEUS-2FAPP-3ASTATS-REGISTRY-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-PROMETHEUS-2FAPP-3APROMETHEUS-APP-MIXIN-29-29"></a>
 
-### [reader](3731) `reblocks-prometheus/app:stats-registry` (prometheus-app-mixin) (= (make-registry))
+### [reader](c8ef) `reblocks-prometheus/app:stats-registry` (prometheus-app-mixin) (= (make-registry))
 
 
 [db0d]: #x-28REBLOCKS-PROMETHEUS-2FAPP-3APROMETHEUS-APP-MIXIN-20CLASS-29
@@ -75,8 +75,8 @@ Use [`stats-registry`][b3a2] to access the registry slot.
 [0a5b]: https://40ants.com/reblocks-prometheus
 [d447]: https://github.com/40ants/reblocks-prometheus
 [1638]: https://github.com/40ants/reblocks-prometheus/actions
-[c5bc]: https://github.com/40ants/reblocks-prometheus/blob/fe7e97966042ed46e0bb50252c001b0b6560d6cb/src/app.lisp#L31
-[3731]: https://github.com/40ants/reblocks-prometheus/blob/fe7e97966042ed46e0bb50252c001b0b6560d6cb/src/app.lisp#L32
+[42f9]: https://github.com/40ants/reblocks-prometheus/blob/f676b76b6302b616d1a671cd841d9039af431758/src/app.lisp#L31
+[c8ef]: https://github.com/40ants/reblocks-prometheus/blob/f676b76b6302b616d1a671cd841d9039af431758/src/app.lisp#L32
 [8225]: https://github.com/40ants/reblocks-prometheus/issues
 [df56]: https://prometheus.io/
 
