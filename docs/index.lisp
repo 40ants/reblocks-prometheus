@@ -8,6 +8,9 @@
   (:import-from #:40ants-doc
                 #:defsection
                 #:defsection-copy)
+  (:import-from #:reblocks-prometheus
+                #:stats-registry
+                #:prometheus-app-mixin)
   (:import-from #:reblocks-prometheus-docs/changelog
                 #:@changelog)
   (:import-from #:docs-config
@@ -53,7 +56,8 @@ metrics in [Prometheus](https://prometheus.io/) format.
 
 "
   (@installation section)
-  (@usage section))
+  (@usage section)
+  (@api section))
 
 
 (defsection-copy @readme @index)
@@ -86,3 +90,8 @@ Inherit your Reblocks application from PROMETHEUS-APP-MIXIN class:
 
 A new route `/metrics` will be added to serve metrics in Prometheus format.
 """)
+
+
+(defsection @api (:title "API")
+  (prometheus-app-mixin class)
+  (stats-registry (reader prometheus-app-mixin)))

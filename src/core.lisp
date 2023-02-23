@@ -1,8 +1,8 @@
 (uiop:define-package #:reblocks-prometheus
   (:use #:cl)
   (:nicknames #:reblocks-prometheus/core)
-  (:import-from #:reblocks-prometheus/app
-                #:prometheus-app-mixin)
-  (:export #:prometheus-app-mixin))
+  (:recycle #:reblocks-prometheus/app)
+  (:export #:prometheus-app-mixin
+           #:stats-registry))
 (in-package #:reblocks-prometheus)
 
