@@ -10,7 +10,7 @@
                          ;; This system is required to load
                          ;; prometheus.collectors.process system.
                          ;; we need this until this PR get merged:
-                         ;; https://github.com/deadtrickster/prometheus.cl/pull/11
+                         ;; https://github.com/deadtrickster/prometheus.cl/pull/12
                          "cffi-grovel")
   :pathname "src"
   :depends-on ("reblocks-prometheus/core")
