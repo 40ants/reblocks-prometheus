@@ -2,7 +2,8 @@
   (:use #:cl)
   (:nicknames #:reblocks-prometheus/core)
   (:import-from #:reblocks-prometheus/app
-                #:prometheus-app-mixin)
-  (:export #:prometheus-app-mixin))
+                #:prometheus-app-mixin
+                #:stats-registry)
+  (:reexport #:reblocks-prometheus/app))
 (in-package #:reblocks-prometheus)
 

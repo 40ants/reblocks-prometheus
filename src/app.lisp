@@ -22,13 +22,20 @@
                 #:number-of-sessions-gauge
                 #:number-of-anonymous-sessions-gauge)
   (:import-from #:prometheus-gc
-                #:make-gc-collector))
+                #:make-gc-collector)
+  (:export #:prometheus-app-mixin
+           #:stats-registry))
 (in-package #:reblocks-prometheus/app)
 
 
 (defclass prometheus-app-mixin ()
   ((registry :initform (make-registry)
-             :reader stats-registry)))
+             :reader stats-registry))
+  (:documentation "A mixin which gathers some stats to report in Prometheus format.
+
+Also, this mixin adds a /metrics slot to the app.
+
+Use STATS-REGISTRY to access the registry slot."))
 
 
 
