@@ -18,7 +18,8 @@
   :jobs ((40ants-ci/jobs/linter:linter
           :asdf-systems ("reblocks-prometheus"
                          "reblocks-prometheus-docs"
-                         "reblocks-prometheus-tests"))))
+                         "reblocks-prometheus-tests")
+          :check-imports t)))
 
 (defworkflow docs
   :on-push-to "master"

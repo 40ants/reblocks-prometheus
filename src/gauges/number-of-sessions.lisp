@@ -6,9 +6,7 @@
   (:import-from #:reblocks/session
                 #:get-number-of-anonymous-sessions
                 #:get-number-of-sessions
-                #:map-sessions)
-  (:import-from #:reblocks/page
-                #:session-pages))
+                #:map-sessions))
 (in-package #:reblocks-prometheus/gauges/number-of-sessions)
 
 
