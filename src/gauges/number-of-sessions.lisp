@@ -9,7 +9,6 @@
                 #:map-sessions))
 (in-package #:reblocks-prometheus/gauges/number-of-sessions)
 
-(reblocks/page:max-pages-per-session)
 
 (defclass number-of-sessions-gauge (gauge)
   ()
