@@ -27,14 +27,14 @@
   ;; as dependency a full 40ANTS-DOC but we don't want
   ;; unnecessary dependencies here:
   #+quicklisp
-  (ql:quickload "40ants-doc-theme-40ants")
+  (uiop:symbol-call :ql :quickload
+                    "40ants-doc-theme-40ants")
   #-quicklisp
   (asdf:load-system "40ants-doc-theme-40ants")
   
   (list :theme
         (find-symbol "40ANTS-THEME"
-                     (find-package "40ANTS-DOC-THEME-40ANTS")))
-  )
+                     (find-package "40ANTS-DOC-THEME-40ANTS"))))
 
 
 (defsection @index (:title "reblocks-prometheus - This is an addon for Reblocks Common Lisp framework which allows to gather metrics in Prometheus format."

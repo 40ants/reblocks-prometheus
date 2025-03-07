@@ -14,6 +14,7 @@
   (:import-from #:log4cl-extras/error
                 #:with-log-unhandled)
   (:import-from #:reblocks/session)
+  (:import-from #:reblocks/routes)
   (:import-from #:reblocks/variables
                 #:*current-app*)
   (:import-from #:reblocks-prometheus/gauges/number-of-pages
