@@ -14,6 +14,8 @@
                 #:@changelog)
   (:import-from #:docs-config
                 #:docs-config)
+  (:import-from #:40ants-doc/autodoc
+                #:defautodoc)
   (:export #:@index
            #:@readme
            #:@changelog))
@@ -79,18 +81,62 @@ You can install this library from Quicklisp, but you want to receive updates qui
                                    "ASDF"
                                    "40A"))
   """
-Inherit your Reblocks application from PROMETHEUS-APP-MIXIN class:
+Add a special metrics route into you're app's route list. Use REBLOCKS-PROMETHEUS:METRICS macro to define this route.
 
 ```
 (defapp app
-  :subclasses (reblocks-prometheus:prometheus-app-mixin)
-  :prefix "/")
+  :prefix "/"
+  :routes
+  ((reblocks-prometheus:metrics (\"/metrics\" :user-metrics *user-metrics*)))
+)
 ```
 
 A new route `/metrics` will be added to serve metrics in Prometheus format.
+
+
+## Adding custom metrics
+
+To add business specific metrics, define them as global variables
+and then the pass to the REBLOCKS-PROMETHEUS:METRICS macro like this:
+
+```
+(defparameter *load-average*
+  (prometheus:make-gauge :name \"test_load_average\"
+                         :help \"Test load average\"
+                         :registry nil))
+
+(defparameter *num-users*
+  (prometheus:make-counter :name \"test_num_users_created\"
+                           :help \"Test num users created after the last metrics collection\"
+                           :registry nil))
+
+(defparameter *user-metrics*
+  (list *load-average*
+        *num-users*))
+
+(defapp app
+  :prefix "/"
+  :routes
+  ((reblocks-prometheus:metrics (\"/metrics\" :user-metrics *user-metrics*)))
+)
+```
+
+After this, you can change this counter and gauge using methods from prometheus.cl library:
+
+```
+(prometheus:gauge.set *load-average* 2)
+
+(prometheus:counter.inc *num-users* :value 1)
+(prometheus:counter.inc *num-users* :value 3)
+```
+
+and their values will change during subsequent get queries for /metrics page.
 """)
 
 
-(defsection @api (:title "API")
-  (prometheus-app-mixin class)
-  (stats-registry (reader prometheus-app-mixin)))
+(defautodoc @api (:system :reblocks-prometheus))
+
+;; TODO: use auto-api
+;; (defsection @api (:title "API")
+;;   (prometheus-app-mixin class)
+;;   (stats-registry (reader prometheus-app-mixin)))

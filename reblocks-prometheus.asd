@@ -13,7 +13,7 @@
                          ;; https://github.com/deadtrickster/prometheus.cl/pull/12
                          "cffi-grovel")
   :pathname "src"
-  :depends-on ("reblocks-prometheus/core")
+  :depends-on ("reblocks-prometheus/app")
   :in-order-to ((test-op (test-op "reblocks-prometheus-tests"))))
 
 
