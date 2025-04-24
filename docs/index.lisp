@@ -7,9 +7,6 @@
   (:import-from #:40ants-doc
                 #:defsection
                 #:defsection-copy)
-  (:import-from #:reblocks-prometheus
-                #:stats-registry
-                #:prometheus-app-mixin)
   (:import-from #:reblocks-prometheus-docs/changelog
                 #:@changelog)
   (:import-from #:docs-config
@@ -135,8 +132,3 @@ and their values will change during subsequent get queries for /metrics page.
 
 
 (defautodoc @api (:system :reblocks-prometheus))
-
-;; TODO: use auto-api
-;; (defsection @api (:title "API")
-;;   (prometheus-app-mixin class)
-;;   (stats-registry (reader prometheus-app-mixin)))
