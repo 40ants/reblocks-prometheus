@@ -5,4 +5,12 @@
 ("ultralisp" .
  (:class qlot/source/dist:source-dist
   :initargs (:distribution "https://dist.ultralisp.org/" :%version :latest)
-  :version "20250307164500"))
+  :version "20250423220000"))
+("reblocks" .
+ (:class qlot/source/github:source-github
+  :initargs (:repos "40ants/reblocks" :ref nil :branch "large-routes-refactoring" :tag nil)
+  :version "github-db27ca4b836f6fae955da42cbf3f2db5bb0b5f6b"))
+("40ants-routes" .
+ (:class qlot/source/github:source-github
+  :initargs (:repos "40ants/routes" :ref nil :branch "fixes-by-meat-bag" :tag nil)
+  :version "github-a4683114361980c24b484c37a37378b0fb2d41a3"))

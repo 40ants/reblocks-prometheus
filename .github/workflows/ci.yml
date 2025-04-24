@@ -39,7 +39,7 @@
           "name": "Setup Common Lisp Environment",
           "uses": "40ants/setup-lisp@v4",
           "with": {
-            "asdf-system": "reblocks-prometheus-ci",
+            "asdf-system": "reblocks-prometheus",
             "cache": "true"
           }
         },
@@ -47,7 +47,7 @@
           "name": "Run Tests",
           "uses": "40ants/run-tests@v2",
           "with": {
-            "asdf-system": "reblocks-prometheus-ci",
+            "asdf-system": "reblocks-prometheus",
             "coveralls-token": "\n${{ matrix.lisp == 'sbcl-bin' &&\n    matrix.os == 'ubuntu-latest' &&\n    matrix.quicklisp == 'ultralisp' &&\n    secrets.github_token }}"
           }
         }
