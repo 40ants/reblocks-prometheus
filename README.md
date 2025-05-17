@@ -12,7 +12,7 @@
 * Homepage: [https://40ants.com/reblocks-prometheus][0a5b]
 * Bug tracker: [https://github.com/40ants/reblocks-prometheus/issues][8225]
 * Source control: [GIT][d447]
-* Depends on: [40ants-routes][25b9], [log4cl-extras][691c], [prometheus][14fa], [prometheus-gc][8b12], [prometheus.collectors.process][563a], [prometheus.collectors.sbcl][a01b], [prometheus.formats.text][b66b], [reblocks][184b], [routes][48e8]
+* Depends on: [40ants-routes][25b9], [prometheus][14fa], [prometheus-gc][8b12], [prometheus.collectors.process][563a], [prometheus.collectors.sbcl][a01b], [prometheus.formats.text][b66b], [reblocks][184b]
 
 [![](https://github-actions.40ants.com/40ants/reblocks-prometheus/matrix.svg?only=ci.run-tests)][1638]
 
@@ -95,7 +95,7 @@ and their values will change during subsequent get queries for /metrics page.
 
 <a id="x-28-23A-28-2819-29-20BASE-CHAR-20-2E-20-22REBLOCKS-PROMETHEUS-22-29-20PACKAGE-29"></a>
 
-#### [package](0f57) `reblocks-prometheus`
+#### [package](c371) `reblocks-prometheus`
 
 <a id="x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-PROMETHEUS-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -107,13 +107,13 @@ and their values will change during subsequent get queries for /metrics page.
 
 <a id="x-28REBLOCKS-PROMETHEUS-3AMETRICS-ROUTE-20CLASS-29"></a>
 
-###### [class](1ffa) `reblocks-prometheus:metrics-route` (route)
+###### [class](eb8e) `reblocks-prometheus:metrics-route` (route)
 
 **Readers**
 
 <a id="x-28REBLOCKS-PROMETHEUS-3ASTATS-REGISTRY-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-PROMETHEUS-3AMETRICS-ROUTE-29-29"></a>
 
-###### [reader](c30f) `reblocks-prometheus:stats-registry` (metrics-route) (= (reblocks-prometheus/app::make-reblocks-metrics-registry))
+###### [reader](9557) `reblocks-prometheus:stats-registry` (metrics-route) (= (reblocks-prometheus/app::make-reblocks-metrics-registry))
 
 <a id="x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40REBLOCKS-PROMETHEUS-24PROMETHEUS-APP-MIXIN-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -121,7 +121,7 @@ and their values will change during subsequent get queries for /metrics page.
 
 <a id="x-28REBLOCKS-PROMETHEUS-3APROMETHEUS-APP-MIXIN-20CLASS-29"></a>
 
-###### [class](8263) `reblocks-prometheus:prometheus-app-mixin` ()
+###### [class](da15) `reblocks-prometheus:prometheus-app-mixin` ()
 
 A mixin which gathers some stats to report in Prometheus format.
 
@@ -135,7 +135,7 @@ Use [`stats-registry`][b2a2] to access the registry slot.
 
 <a id="x-28REBLOCKS-PROMETHEUS-3AMETRICS-REGISTRY-20FUNCTION-29"></a>
 
-##### [function](f102) `reblocks-prometheus:metrics-registry`
+##### [function](6692) `reblocks-prometheus:metrics-registry`
 
 Call this function during handler's body to update gauges before metrics will be collected.
 
@@ -145,7 +145,7 @@ Call this function during handler's body to update gauges before metrics will be
 
 <a id="x-28REBLOCKS-PROMETHEUS-3AMETRICS-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29"></a>
 
-##### [macro](98b5) `reblocks-prometheus:metrics` (path &key name user-metrics) &body handler-body
+##### [macro](2324) `reblocks-prometheus:metrics` (path &key name user-metrics) &body handler-body
 
 This macro creates a route of [`metrics-route`][863c] class.
 
@@ -161,23 +161,21 @@ from the handler body code.
 [0a5b]: https://40ants.com/reblocks-prometheus
 [d447]: https://github.com/40ants/reblocks-prometheus
 [1638]: https://github.com/40ants/reblocks-prometheus/actions
-[8263]: https://github.com/40ants/reblocks-prometheus/blob/e4de964050d54016f931fe2cde3d3130ccc441d3/src/app.lisp#L41
-[1ffa]: https://github.com/40ants/reblocks-prometheus/blob/e4de964050d54016f931fe2cde3d3130ccc441d3/src/app.lisp#L81
-[c30f]: https://github.com/40ants/reblocks-prometheus/blob/e4de964050d54016f931fe2cde3d3130ccc441d3/src/app.lisp#L82
-[f102]: https://github.com/40ants/reblocks-prometheus/blob/e4de964050d54016f931fe2cde3d3130ccc441d3/src/app.lisp#L90
-[98b5]: https://github.com/40ants/reblocks-prometheus/blob/e4de964050d54016f931fe2cde3d3130ccc441d3/src/app.lisp#L97
-[0f57]: https://github.com/40ants/reblocks-prometheus/blob/e4de964050d54016f931fe2cde3d3130ccc441d3/src/core.lisp#L1
+[da15]: https://github.com/40ants/reblocks-prometheus/blob/60a53b13c465ebfadd46f293a05281964fb92d1e/src/app.lisp#L38
+[eb8e]: https://github.com/40ants/reblocks-prometheus/blob/60a53b13c465ebfadd46f293a05281964fb92d1e/src/app.lisp#L78
+[9557]: https://github.com/40ants/reblocks-prometheus/blob/60a53b13c465ebfadd46f293a05281964fb92d1e/src/app.lisp#L79
+[6692]: https://github.com/40ants/reblocks-prometheus/blob/60a53b13c465ebfadd46f293a05281964fb92d1e/src/app.lisp#L87
+[2324]: https://github.com/40ants/reblocks-prometheus/blob/60a53b13c465ebfadd46f293a05281964fb92d1e/src/app.lisp#L94
+[c371]: https://github.com/40ants/reblocks-prometheus/blob/60a53b13c465ebfadd46f293a05281964fb92d1e/src/core.lisp#L1
 [8225]: https://github.com/40ants/reblocks-prometheus/issues
 [df56]: https://prometheus.io/
 [25b9]: https://quickdocs.org/40ants-routes
-[691c]: https://quickdocs.org/log4cl-extras
 [14fa]: https://quickdocs.org/prometheus
 [8b12]: https://quickdocs.org/prometheus-gc
 [563a]: https://quickdocs.org/prometheus.collectors.process
 [a01b]: https://quickdocs.org/prometheus.collectors.sbcl
 [b66b]: https://quickdocs.org/prometheus.formats.text
 [184b]: https://quickdocs.org/reblocks
-[48e8]: https://quickdocs.org/routes
 
 * * *
 ###### [generated by [40ANTS-DOC](https://40ants.com/doc/)]
