@@ -35,6 +35,7 @@
   :on-pull-request t
   :cache t
   :jobs ((run-tests
+          :asdf-system "reblocks-prometheus"
           :lisp ("sbcl-bin"
                  "ccl-bin")
           :coverage t)))
