@@ -95,7 +95,7 @@ and their values will change during subsequent get queries for /metrics page.
 
 <a id="x-28-23A-28-2819-29-20BASE-CHAR-20-2E-20-22REBLOCKS-PROMETHEUS-22-29-20PACKAGE-29"></a>
 
-#### [package](c371) `reblocks-prometheus`
+#### [package](482f) `reblocks-prometheus`
 
 <a id="x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-PROMETHEUS-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -107,13 +107,13 @@ and their values will change during subsequent get queries for /metrics page.
 
 <a id="x-28REBLOCKS-PROMETHEUS-3AMETRICS-ROUTE-20CLASS-29"></a>
 
-###### [class](eb8e) `reblocks-prometheus:metrics-route` (route)
+###### [class](8f47) `reblocks-prometheus:metrics-route` (route)
 
 **Readers**
 
 <a id="x-28REBLOCKS-PROMETHEUS-3ASTATS-REGISTRY-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-PROMETHEUS-3AMETRICS-ROUTE-29-29"></a>
 
-###### [reader](9557) `reblocks-prometheus:stats-registry` (metrics-route) (= (reblocks-prometheus/app::make-reblocks-metrics-registry))
+###### [reader](0156) `reblocks-prometheus:stats-registry` (metrics-route) (= (reblocks-prometheus/app::make-reblocks-metrics-registry))
 
 <a id="x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40REBLOCKS-PROMETHEUS-24PROMETHEUS-APP-MIXIN-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -121,7 +121,7 @@ and their values will change during subsequent get queries for /metrics page.
 
 <a id="x-28REBLOCKS-PROMETHEUS-3APROMETHEUS-APP-MIXIN-20CLASS-29"></a>
 
-###### [class](da15) `reblocks-prometheus:prometheus-app-mixin` ()
+###### [class](6f7f) `reblocks-prometheus:prometheus-app-mixin` ()
 
 A mixin which gathers some stats to report in Prometheus format.
 
@@ -135,7 +135,7 @@ Use [`stats-registry`][b2a2] to access the registry slot.
 
 <a id="x-28REBLOCKS-PROMETHEUS-3AMETRICS-REGISTRY-20FUNCTION-29"></a>
 
-##### [function](6692) `reblocks-prometheus:metrics-registry`
+##### [function](3240) `reblocks-prometheus:metrics-registry`
 
 Call this function during handler's body to update gauges before metrics will be collected.
 
@@ -145,7 +145,7 @@ Call this function during handler's body to update gauges before metrics will be
 
 <a id="x-28REBLOCKS-PROMETHEUS-3AMETRICS-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29"></a>
 
-##### [macro](2324) `reblocks-prometheus:metrics` (path &key name user-metrics) &body handler-body
+##### [macro](a770) `reblocks-prometheus:metrics` (path &key name user-metrics) &body handler-body
 
 This macro creates a route of [`metrics-route`][863c] class.
 
@@ -161,12 +161,12 @@ from the handler body code.
 [0a5b]: https://40ants.com/reblocks-prometheus
 [d447]: https://github.com/40ants/reblocks-prometheus
 [1638]: https://github.com/40ants/reblocks-prometheus/actions
-[da15]: https://github.com/40ants/reblocks-prometheus/blob/60a53b13c465ebfadd46f293a05281964fb92d1e/src/app.lisp#L38
-[eb8e]: https://github.com/40ants/reblocks-prometheus/blob/60a53b13c465ebfadd46f293a05281964fb92d1e/src/app.lisp#L78
-[9557]: https://github.com/40ants/reblocks-prometheus/blob/60a53b13c465ebfadd46f293a05281964fb92d1e/src/app.lisp#L79
-[6692]: https://github.com/40ants/reblocks-prometheus/blob/60a53b13c465ebfadd46f293a05281964fb92d1e/src/app.lisp#L87
-[2324]: https://github.com/40ants/reblocks-prometheus/blob/60a53b13c465ebfadd46f293a05281964fb92d1e/src/app.lisp#L94
-[c371]: https://github.com/40ants/reblocks-prometheus/blob/60a53b13c465ebfadd46f293a05281964fb92d1e/src/core.lisp#L1
+[6f7f]: https://github.com/40ants/reblocks-prometheus/blob/fe1b4387940bb4648f5854e61ce329334288e8a8/src/app.lisp#L38
+[8f47]: https://github.com/40ants/reblocks-prometheus/blob/fe1b4387940bb4648f5854e61ce329334288e8a8/src/app.lisp#L78
+[0156]: https://github.com/40ants/reblocks-prometheus/blob/fe1b4387940bb4648f5854e61ce329334288e8a8/src/app.lisp#L79
+[3240]: https://github.com/40ants/reblocks-prometheus/blob/fe1b4387940bb4648f5854e61ce329334288e8a8/src/app.lisp#L87
+[a770]: https://github.com/40ants/reblocks-prometheus/blob/fe1b4387940bb4648f5854e61ce329334288e8a8/src/app.lisp#L94
+[482f]: https://github.com/40ants/reblocks-prometheus/blob/fe1b4387940bb4648f5854e61ce329334288e8a8/src/core.lisp#L1
 [8225]: https://github.com/40ants/reblocks-prometheus/issues
 [df56]: https://prometheus.io/
 [25b9]: https://quickdocs.org/40ants-routes
