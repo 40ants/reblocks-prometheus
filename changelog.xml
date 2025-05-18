@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<rss version="2.0">
+    <channel>
+        <title>reblocks-prometheus-docs ChangeLog</title>
+        <generator>xml-emitter</generator>
+        <language>en-us</language>
+        <item>
+            <title>0.2.0  (2025-04-24)</title>
+            <description>&lt;h1 id=&quot;backward-incompatible-changes&quot;&gt;Backward incompatible changes&lt;/h1&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Now library depends on recent changes to Reblock&apos;s routing.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Also, &lt;code&gt;API&lt;/code&gt; has changed. Instead of adding a class mixin, you need to add a custom route to the app&apos;s routes.
+  Read more about new usage pattern in &lt;a href=&quot;#x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40USAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29&quot; data-document=&quot;&quot; data-node=&quot;x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40USAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29&quot;&gt;&lt;code&gt;Usage&lt;/code&gt;&lt;/a&gt; section.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Mixin class now is deprecated and will not work. It&apos;s instantiation results in the error.
+  In the next version it will be removed completely.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</description>
+            <pubDate>Thu, 24 Apr 2025 00:00:00 +0000</pubDate>
+        </item>
+        <item>
+            <title>0.1.0  (2023-02-05)</title>
+            <description>&lt;ul&gt;&lt;li&gt;&lt;p&gt;Initial version.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</description>
+            <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
+        </item>
+    </channel>
+</rss>

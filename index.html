@@ -1,0 +1,145 @@
+<html lang=en>
+ <head>
+  <meta charset=UTF-8><meta name=viewport
+      content="width=device-width, initial-scale=1">
+  <title>reblocks-prometheus - This is an addon for Reblocks Common Lisp framework 
+   which allows to gather metrics in Prometheus format.</title>
+  <link rel=stylesheet type="text/css"
+        href=theme.css>
+  <script type="text/javascript" src=jquery.js></script>
+  <script type="text/javascript" src=toc.js></script>
+  <script type="text/javascript">$(document).ready(function() {$('a:has(img)').css('border-bottom', 'none')})</script>
+  <link rel=stylesheet type="text/css"
+      href=highlight.min.css>
+  <script type="text/javascript"
+          src=highlight.min.js></script>
+  <script type="text/javascript">hljs.highlightAll();</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FL71WXK73K"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-FL71WXK73K');
+    </script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+       ym(42462884, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true
+       });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/42462884" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+ </head>
+ <body>
+  <div class=page><a id=fork-me href="https://github.com/40ants/reblocks-prometheus">Fork me on GitHub</a>
+   <div class=navbar>
+    <div class=navbar-inner>
+     <a class=brand href="/">
+      <img class=logo
+           src="https://40ants.com/img/logo.svg"></a>
+     <ul class=nav>
+      <li><a href="/posts/">Blog</a>
+      <li><a href="/ru/posts/">Blog (RU)</a>
+      <li><a href="/tips/">Lisp Tips</a>
+      <li><a href="/projects/">Our Projects</a>
+      <li><a href="/about/">About</a>
+     </ul>
+    </div>
+   </div>
+   <input type=checkbox id=sidebar-check>
+   <label for=sidebar-check>
+    <div id=sidebar-trigger>
+     <span></span><span></span><span></span>
+    </div></label><div class=sidebar><div class=header><form class=search method=GET action="search/">
+      <input type=text name=q>
+      <input type=submit value=Search><span id=search-progress></span>
+     </form>
+    </div><div class=content><div class=page-toc><ul><li><p><a href="#x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-40INDEX-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29" data-document="" data-node="x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-40INDEX-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29">reblocks-prometheus - This is an addon for Reblocks Common Lisp framework which allows to gather metrics in Prometheus format.</a></p><ul><li><p><a href="#reblocks-prometheus-asdf-system-details" data-document="" data-node="reblocks-prometheus-asdf-system-details">REBLOCKS-PROMETHEUS ASDF System Details</a></p></li><li><p><a href="#x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40INSTALLATION-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29" data-document="" data-node="x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40INSTALLATION-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29">Installation</a></p></li><li><p><a href="#x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40USAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29" data-document="" data-node="x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40USAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29">Usage</a></p><ul><li><p><a href="#adding-custom-metrics" data-document="" data-node="adding-custom-metrics">Adding custom metrics</a></p></li></ul></li><li><p><a href="#x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40API-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29" data-document="" data-node="x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40API-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29">API</a></p><ul><li><p><a href="#x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40REBLOCKS-PROMETHEUS-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29" data-document="" data-node="x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40REBLOCKS-PROMETHEUS-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29">REBLOCKS-PROMETHEUS</a></p><ul><li><p><a href="#x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-PROMETHEUS-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29" data-document="" data-node="x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-PROMETHEUS-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29">Classes</a></p><ul><li><p><a href="#x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40REBLOCKS-PROMETHEUS-24METRICS-ROUTE-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29" data-document="" data-node="x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40REBLOCKS-PROMETHEUS-24METRICS-ROUTE-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29">METRICS-ROUTE</a></p></li><li><p><a href="#x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40REBLOCKS-PROMETHEUS-24PROMETHEUS-APP-MIXIN-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29" data-document="" data-node="x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40REBLOCKS-PROMETHEUS-24PROMETHEUS-APP-MIXIN-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29">PROMETHEUS-APP-MIXIN</a></p></li></ul></li><li><p><a href="#x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-PROMETHEUS-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29" data-document="" data-node="x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-PROMETHEUS-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29">Functions</a></p></li><li><p><a href="#x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-PROMETHEUS-3FMacros-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29" data-document="" data-node="x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-PROMETHEUS-3FMacros-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29">Macros</a></p></li></ul></li></ul></li></ul></li><li><p><a href="changelog/#x-28REBLOCKS-PROMETHEUS-DOCS-2FCHANGELOG-3A-40CHANGELOG-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29" data-document="changelog/" data-node="x-28REBLOCKS-PROMETHEUS-DOCS-2FCHANGELOG-3A-40CHANGELOG-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29">ChangeLog</a></p></li></ul>
+     </div>
+    </div><div class=footer>
+     <a href="https://40ants.com/doc">[generated by 40ANTS-DOC]</a>
+    </div>
+   </div><div class=content role=main><h1>reblocks-prometheus - This is an addon for Reblocks Common Lisp framework which allows to gather metrics in Prometheus format.<a class=header-link
+     href=#x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-40INDEX-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29
+     title="Permalink to this headline"
+     id=x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-40INDEX-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29></a></h1><h2 id="reblocks-prometheus-asdf-system-details">REBLOCKS-PROMETHEUS ASDF System Details</h2><ul><li><p>Description: This is an addon for Reblocks Common Lisp framework which allows to gather metrics in Prometheus format.</p></li><li><p>Licence: Unlicense</p></li><li><p>Author: Alexander Artemenko</p></li><li><p>Homepage: <a href="https://40ants.com/reblocks-prometheus">https://40ants.com/reblocks-prometheus</a></p></li><li><p>Bug tracker: <a href="https://github.com/40ants/reblocks-prometheus/issues">https://github.com/40ants/reblocks-prometheus/issues</a></p></li><li><p>Source control: <a href="https://github.com/40ants/reblocks-prometheus">GIT</a></p></li><li><p>Depends on: <a href="https://quickdocs.org/40ants-routes">40ants-routes</a>, <a href="https://quickdocs.org/prometheus">prometheus</a>, <a href="https://quickdocs.org/prometheus-gc">prometheus-gc</a>, <a href="https://quickdocs.org/prometheus.collectors.process">prometheus.collectors.process</a>, <a href="https://quickdocs.org/prometheus.collectors.sbcl">prometheus.collectors.sbcl</a>, <a href="https://quickdocs.org/prometheus.formats.text">prometheus.formats.text</a>, <a href="https://quickdocs.org/reblocks">reblocks</a></p></li></ul><p><a href="https://github.com/40ants/reblocks-prometheus/actions"><img src="https://github-actions.40ants.com/40ants/reblocks-prometheus/matrix.svg?only=ci.run-tests"/></a></p><p><img src="http://quickdocs.org/badge/reblocks-prometheus.svg"/></p><p>This is an addon for Reblocks Common Lisp framework which allows to gather
+metrics in <a href="https://prometheus.io/">Prometheus</a> format.</p><h2>Installation<a class=header-link
+     href=#x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40INSTALLATION-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29
+     title="Permalink to this headline"
+     id=x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40INSTALLATION-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29></a></h2><p>You can install this library from Quicklisp, but you want to receive updates quickly, then install it from Ultralisp.org:</p><pre><code class="">(ql-dist:install-dist &quot;http://dist.ultralisp.org/&quot;
+                      :prompt nil)
+(ql:quickload :reblocks-prometheus)</code></pre><h2>Usage<a class=header-link
+     href=#x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40USAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29
+     title="Permalink to this headline"
+     id=x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40USAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29></a></h2><p>Add a special metrics route into you're app's route list. Use <a href="#x-28REBLOCKS-PROMETHEUS-3AMETRICS-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29" data-document="" data-node="x-28REBLOCKS-PROMETHEUS-3AMETRICS-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29"><code>reblocks-prometheus:metrics</code></a> macro to define this route.</p><pre><code class="">(defapp app
+  :prefix &quot;/&quot;
+  :routes
+  ((reblocks-prometheus:metrics (\&quot;/metrics\&quot; :user-metrics *user-metrics*)))
+)</code></pre><p>A new route <code>/metrics</code> will be added to serve metrics in Prometheus format.</p><h3 id="adding-custom-metrics">Adding custom metrics</h3><p>To add business specific metrics, define them as global variables
+and then the pass to the <a href="#x-28REBLOCKS-PROMETHEUS-3AMETRICS-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29" data-document="" data-node="x-28REBLOCKS-PROMETHEUS-3AMETRICS-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29"><code>reblocks-prometheus:metrics</code></a> macro like this:</p><pre><code class="">(defparameter *load-average*
+  (prometheus:make-gauge :name \&quot;test_load_average\&quot;
+                         :help \&quot;Test load average\&quot;
+                         :registry nil))
+
+(defparameter *num-users*
+  (prometheus:make-counter :name \&quot;test_num_users_created\&quot;
+                           :help \&quot;Test num users created after the last metrics collection\&quot;
+                           :registry nil))
+
+(defparameter *user-metrics*
+  (list *load-average*
+        *num-users*))
+
+(defapp app
+  :prefix &quot;/&quot;
+  :routes
+  ((reblocks-prometheus:metrics (\&quot;/metrics\&quot; :user-metrics *user-metrics*)))
+)</code></pre><p>After this, you can change this counter and gauge using methods from prometheus.cl library:</p><pre><code class="">(prometheus:gauge.set *load-average* 2)
+
+(prometheus:counter.inc *num-users* :value 1)
+(prometheus:counter.inc *num-users* :value 3)</code></pre><p>and their values will change during subsequent get queries for /metrics page.</p><h2>API<a class=header-link
+     href=#x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40API-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29
+     title="Permalink to this headline"
+     id=x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40API-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29></a></h2><h3>REBLOCKS-PROMETHEUS<a class=header-link
+     href=#x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40REBLOCKS-PROMETHEUS-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29
+     title="Permalink to this headline"
+     id=x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40REBLOCKS-PROMETHEUS-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29></a></h3><div class=reference-bullet><div class=reference-bullet-header><a class=locative-type href="https://github.com/40ants/reblocks-prometheus/blob/fe1b4387940bb4648f5854e61ce329334288e8a8/src/core.lisp#L1">package</a><div class=reference-object><div class=object-name><a href=#x-28-23A-28-2819-29-20BASE-CHAR-20-2E-20-22REBLOCKS-PROMETHEUS-22-29-20PACKAGE-29 id=x-28-23A-28-2819-29-20BASE-CHAR-20-2E-20-22REBLOCKS-PROMETHEUS-22-29-20PACKAGE-29>reblocks-prometheus</a></div></div><a class=bullet-link href=#x-28-23A-28-2819-29-20BASE-CHAR-20-2E-20-22REBLOCKS-PROMETHEUS-22-29-20PACKAGE-29></a></div></div><h4>Classes<a class=header-link
+     href=#x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-PROMETHEUS-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29
+     title="Permalink to this headline"
+     id=x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-PROMETHEUS-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29></a></h4><h5>METRICS-ROUTE<a class=header-link
+     href=#x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40REBLOCKS-PROMETHEUS-24METRICS-ROUTE-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29
+     title="Permalink to this headline"
+     id=x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40REBLOCKS-PROMETHEUS-24METRICS-ROUTE-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29></a></h5><div class=reference-bullet><div class=reference-bullet-header><a class=locative-type href="https://github.com/40ants/reblocks-prometheus/blob/fe1b4387940bb4648f5854e61ce329334288e8a8/src/app.lisp#L78">class</a><div class=reference-object><div class=object-name><a href=#x-28REBLOCKS-PROMETHEUS-3AMETRICS-ROUTE-20CLASS-29 id=x-28REBLOCKS-PROMETHEUS-3AMETRICS-ROUTE-20CLASS-29>reblocks-prometheus:metrics-route</a></div><div class=object-args><span class=locative-args></span></div></div><a class=bullet-link href=#x-28REBLOCKS-PROMETHEUS-3AMETRICS-ROUTE-20CLASS-29></a></div></div><p><b>Readers</b></p><div class=reference-bullet><div class=reference-bullet-header><a class=locative-type href="https://github.com/40ants/reblocks-prometheus/blob/fe1b4387940bb4648f5854e61ce329334288e8a8/src/app.lisp#L79">reader</a><div class=reference-object><div class=object-name><a href=#x-28REBLOCKS-PROMETHEUS-3ASTATS-REGISTRY-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-PROMETHEUS-3AMETRICS-ROUTE-29-29 id=x-28REBLOCKS-PROMETHEUS-3ASTATS-REGISTRY-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-PROMETHEUS-3AMETRICS-ROUTE-29-29>reblocks-prometheus:stats-registry</a></div><div class=object-args><span class=locative-args></span><span class=locative-args>(= (reblocks-prometheus/app::make-reblocks-metrics-registry))</span></div></div><a class=bullet-link href=#x-28REBLOCKS-PROMETHEUS-3ASTATS-REGISTRY-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-PROMETHEUS-3AMETRICS-ROUTE-29-29></a></div></div><h5>PROMETHEUS-APP-MIXIN<a class=header-link
+     href=#x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40REBLOCKS-PROMETHEUS-24PROMETHEUS-APP-MIXIN-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29
+     title="Permalink to this headline"
+     id=x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-40REBLOCKS-PROMETHEUS-24PROMETHEUS-APP-MIXIN-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29></a></h5><div class=reference-bullet><div class=reference-bullet-header><a class=locative-type href="https://github.com/40ants/reblocks-prometheus/blob/fe1b4387940bb4648f5854e61ce329334288e8a8/src/app.lisp#L38">class</a><div class=reference-object><div class=object-name><a href=#x-28REBLOCKS-PROMETHEUS-3APROMETHEUS-APP-MIXIN-20CLASS-29 id=x-28REBLOCKS-PROMETHEUS-3APROMETHEUS-APP-MIXIN-20CLASS-29>reblocks-prometheus:prometheus-app-mixin</a></div><div class=object-args><span class=locative-args></span></div></div><a class=bullet-link href=#x-28REBLOCKS-PROMETHEUS-3APROMETHEUS-APP-MIXIN-20CLASS-29></a></div><div class=bullet-content><p>A mixin which gathers some stats to report in Prometheus format.</p><p>Also, this mixin adds a /metrics slot to the app.</p><p>Use <a href="#x-28REBLOCKS-PROMETHEUS-3ASTATS-REGISTRY-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-PROMETHEUS-3AMETRICS-ROUTE-29-29" data-document="" data-node="x-28REBLOCKS-PROMETHEUS-3ASTATS-REGISTRY-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-PROMETHEUS-3AMETRICS-ROUTE-29-29"><code>stats-registry</code></a> to access the registry slot.</p></div></div><h4>Functions<a class=header-link
+     href=#x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-PROMETHEUS-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29
+     title="Permalink to this headline"
+     id=x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-PROMETHEUS-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29></a></h4><div class=reference-bullet><div class=reference-bullet-header><a class=locative-type href="https://github.com/40ants/reblocks-prometheus/blob/fe1b4387940bb4648f5854e61ce329334288e8a8/src/app.lisp#L87">function</a><div class=reference-object><div class=object-name><a href=#x-28REBLOCKS-PROMETHEUS-3AMETRICS-REGISTRY-20FUNCTION-29 id=x-28REBLOCKS-PROMETHEUS-3AMETRICS-REGISTRY-20FUNCTION-29>reblocks-prometheus:metrics-registry</a></div></div><a class=bullet-link href=#x-28REBLOCKS-PROMETHEUS-3AMETRICS-REGISTRY-20FUNCTION-29></a></div><div class=bullet-content><p>Call this function during handler's body to update gauges before metrics will be collected.</p></div></div><h4>Macros<a class=header-link
+     href=#x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-PROMETHEUS-3FMacros-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29
+     title="Permalink to this headline"
+     id=x-28REBLOCKS-PROMETHEUS-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-PROMETHEUS-3FMacros-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29></a></h4><div class=reference-bullet><div class=reference-bullet-header><a class=locative-type href="https://github.com/40ants/reblocks-prometheus/blob/fe1b4387940bb4648f5854e61ce329334288e8a8/src/app.lisp#L94">macro</a><div class=reference-object><div class=object-name><a href=#x-28REBLOCKS-PROMETHEUS-3AMETRICS-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29 id=x-28REBLOCKS-PROMETHEUS-3AMETRICS-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29>reblocks-prometheus:metrics</a></div><div class=object-args><span class=locative-args>(path &amp;key name user-metrics) &amp;body handler-body</span></div></div><a class=bullet-link href=#x-28REBLOCKS-PROMETHEUS-3AMETRICS-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29></a></div><div class=bullet-content><p>This macro creates a route of <a href="#x-28REBLOCKS-PROMETHEUS-3AMETRICS-ROUTE-20CLASS-29" data-document="" data-node="x-28REBLOCKS-PROMETHEUS-3AMETRICS-ROUTE-20CLASS-29"><code>metrics-route</code></a> class.</p><p>The body passed as <code>HANDLER-BODY</code> will be executed each time when metrics are collected.
+You can use <a href="#x-28REBLOCKS-PROMETHEUS-3AMETRICS-REGISTRY-20FUNCTION-29" data-document="" data-node="x-28REBLOCKS-PROMETHEUS-3AMETRICS-REGISTRY-20FUNCTION-29"><code>metrics-registry</code></a> function to access the prometheus metrics registry
+from the handler body code.</p></div></div>
+   </div><div class=footer>
+    <hr class=separator>
+    <p class=fineprint>Created with passion by <em>40Ants</em><a class=lisp-logo
+     href="http://lisp-lang.org/">
+      <img
+           src="https://40ants.com/img/made-with-lisp.svg"></a>
+   </div>
+  </div>
+ </body>
+</html>
